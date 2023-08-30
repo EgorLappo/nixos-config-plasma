@@ -115,9 +115,7 @@
   };
 
   fonts.fonts = with pkgs; [
-    nerdfonts.override {
-      fonts = ["JetBrainsMono" "Iosevka"]; 
-    }
+    (nerdfonts.override { fonts = ["JetBrainsMono" "Iosevka" "FiraCode" "DroidSansMono"]; })
   ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
