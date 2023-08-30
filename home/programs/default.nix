@@ -1,3 +1,5 @@
+{ config, pkgs, ... }: 
+
 let
   more = { pkgs, ... }: {
     programs = {
@@ -52,19 +54,21 @@ let
 
     };
   };
-in
-[
+in { 
+
+  imports = [
   ./alacritty
   # ./browsers/firefox.nix
-  ./browsers/chromium.nix
-  ./git
-  ./fish
-  ./helix
-  ./neofetch
-  ./neovim-ide
-  ./ngrok
-  ./rofi
-  ./tmux
-  ./zathura
-  more
-]
+    ./browsers/chromium.nix
+    ./git
+    ./fish
+    ./helix
+    ./neofetch
+    ./neovim-ide
+    ./ngrok
+    ./rofi
+    ./tmux
+    ./zathura
+    more
+  ];
+}
