@@ -23,6 +23,12 @@
       fsType = "vfat";
     };
 
+  fileSystems."/home/egor/hdd" = 
+    {
+      device = "/dev/disk/by-label/archive";
+      fsType = "ext4";
+    };
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

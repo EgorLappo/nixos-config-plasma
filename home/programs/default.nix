@@ -52,6 +52,9 @@ let
         options = [ ];
       };
 
+      vscode = {
+        enable = true;
+      };
     };
   };
 in { 
