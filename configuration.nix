@@ -14,7 +14,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -78,14 +78,14 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.egor = {
-    isNormalUser = true;
-    description = "egor";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      htop
-    ];
-  };
+  # users.users.egor = {
+  #   isNormalUser = true;
+  #   description = "egor";
+  #   extraGroups = [ "networkmanager" "wheel" ];
+  #   packages = with pkgs; [
+  #     htop
+  #   ];
+  # };
 
   # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;
