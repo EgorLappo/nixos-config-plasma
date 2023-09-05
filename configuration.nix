@@ -9,7 +9,7 @@
   # Bootloader.
   boot.loader.systemd-boot = { 
     enable = true;
-    configurationLimit = 2;
+    configurationLimit = 3;
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -78,14 +78,14 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.users.egor = {
-  #   isNormalUser = true;
-  #   description = "egor";
-  #   extraGroups = [ "networkmanager" "wheel" ];
-  #   packages = with pkgs; [
-  #     htop
-  #   ];
-  # };
+  users.users.egor = {
+    isNormalUser = true;
+    description = "egor";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [
+      htop
+    ];
+  };
 
   # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;
@@ -98,12 +98,19 @@
     package = pkgs.nixFlakes;
     extraOptions = ''
       experimental-features = nix-command flakes
+      warn-dirty = false
     '';
   };
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = ["JetBrainsMono" "Iosevka" "FiraCode" "DroidSansMono"]; })
   ];
+
+  # shell setup
+  programs.fish.enable = true;
+  users.defaultUserShell = pkgs.fish;
+  environment.binsh = "${pkgs.dash}/bin/dash";
+  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
