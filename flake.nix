@@ -13,9 +13,14 @@
       url = github:helix-editor/helix;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    vscode-server = { 
+      url = "github:nix-community/nixos-vscode-server";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, helix-flake, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, helix-flake, vscode-server, ... }:
     let
       system = "x86_64-linux";
     in
@@ -47,6 +52,10 @@
                 home-manager.useUserPackages = true;
                 home-manager.users.egor = import home/home.nix;
               }
+              vscode-server.nixosModules.default
+              ({ config, pkgs, ... }: {
+                services.vscode-server.enable = true;
+              })
             ];
           };
       };

@@ -11,10 +11,11 @@ let
     drawio # diagram design
     duf # disk usage/free utility
     erdtree # a better `tree`
-    exa # a better `ls`
+    eza # a better `ls`
     fd # "find" for files
     feh # images
     gh # github cli
+    git-lfs
     glow # terminal markdown viewer
     killall # kill processes by name
     lnav # log file navigator on the terminal
@@ -25,6 +26,7 @@ let
     nix-index # locate packages containing certain nixpkgs
     nix-init # initialize nix projects
     nix-output-monitor # nom: monitor nix commands
+    nixpkgs-fmt # format nix files
     nurl # nix url prefetcher
     ouch # painless compression and decompression for your terminal
     pavucontrol # pulseaudio volume control
@@ -75,4 +77,5 @@ in
 
   # notifications about home-manager news
   news.display = "silent";
+
 }
