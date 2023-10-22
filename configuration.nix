@@ -92,13 +92,19 @@
   services.xserver.displayManager.autoLogin.user = "egor";
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = { 
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "openssl-1.1.1w"
+    ];
+  };
 
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = ''
       experimental-features = nix-command flakes
       warn-dirty = false
+      trusted-users = egor
     '';
   };
 
