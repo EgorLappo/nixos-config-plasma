@@ -14,13 +14,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    vscode-server = { 
-      url = "github:nix-community/nixos-vscode-server";
+    emacs-flake = {
+      url = github:nix-community/emacs-overlay;
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, helix-flake, vscode-server, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, helix-flake, emacs-flake, ... }:
     let
       system = "x86_64-linux";
     in
@@ -34,6 +34,7 @@
               system = system;
               overlays = [
                 helix-flake.overlays.default
+                emacs-flake.overlays.default
               ];
               config = {
                 allowUnfree = true;
@@ -52,10 +53,6 @@
                 home-manager.useUserPackages = true;
                 home-manager.users.egor = import home/home.nix;
               }
-              vscode-server.nixosModules.default
-              ({ config, pkgs, ... }: {
-                services.vscode-server.enable = true;
-              })
             ];
           };
       };
