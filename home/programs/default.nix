@@ -64,7 +64,7 @@ in
     ./alacritty
     # ./browsers/firefox.nix
     ./browsers/chromium.nix
-    ./emacs
+    # ./emacs
     ./fish
     ./git
     ./helix

@@ -40,6 +40,7 @@ let
     tree # display files in a tree view
     vlc # media player
     xsel # clipboard support (also for neovim)
+    wget
 
     # haskell packages
     haskellPackages.nix-tree # visualize nix dependencies
@@ -53,7 +54,7 @@ in
     ./programs
   ];
 
-    programs.home-manager.enable = true;
+  programs.home-manager.enable = true;
 
   xdg = {
     inherit configHome;

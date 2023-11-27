@@ -38,6 +38,9 @@ in
       bat = "bat --theme=brease16";
       erd = "erd -H -I -L 3";
       v = "nvim";
+      e = "emacs";
+      ecl = "emacsclient";
+
       nswitch = "sudo nixos-rebuild switch --flake ~/.dotfiles#$MACHINE";
       # hswitch = "home-manager switch --flake ~/.dotfiles";
 

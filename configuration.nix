@@ -2,12 +2,13 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot = { 
+  boot.loader.systemd-boot = {
     enable = true;
     configurationLimit = 3;
   };
@@ -91,8 +92,13 @@
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "egor";
 
+  services.emacs = {
+    enable = true;
+    package = pkgs.emacs;
+  };
+
   # Allow unfree packages
-  nixpkgs.config = { 
+  nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = [
       "openssl-1.1.1w"
@@ -109,14 +115,14 @@
   };
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = ["JetBrainsMono" "Iosevka" "FiraCode" "DroidSansMono"]; })
+    (nerdfonts.override { fonts = [ "JetBrainsMono" "Iosevka" "FiraCode" "DroidSansMono" ]; })
   ];
 
   # shell setup
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
   environment.binsh = "${pkgs.dash}/bin/dash";
-  
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
