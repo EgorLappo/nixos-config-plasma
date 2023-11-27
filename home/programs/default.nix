@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: 
+{ config, pkgs, ... }:
 
 let
   more = { pkgs, ... }: {
@@ -57,14 +57,16 @@ let
       };
     };
   };
-in { 
+in
+{
 
   imports = [
-  ./alacritty
-  # ./browsers/firefox.nix
+    ./alacritty
+    # ./browsers/firefox.nix
     ./browsers/chromium.nix
-    ./git
+    ./emacs
     ./fish
+    ./git
     ./helix
     ./neofetch
     ./neovim-ide
