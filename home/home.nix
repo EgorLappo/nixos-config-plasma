@@ -68,7 +68,9 @@ in
     packages = defaultPkgs;
 
     sessionVariables = {
-      EDITOR = "HELIX";
+      EDITOR = "emacsclient";
+      TERM="xterm-256color";
+      COLORTERM="truecolor";
       MACHINE = "lab-dell";
     };
   };
