@@ -86,6 +86,9 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       htop
+      wget
+      clang
+      coreutils
     ];
   };
 
@@ -95,7 +98,7 @@
 
   services.emacs = {
     enable = true;
-    package = pkgs.emacs;
+    package = pkgs.emacs-git;
   };
 
   # Allow unfree packages

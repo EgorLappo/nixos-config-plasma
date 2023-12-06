@@ -3,6 +3,6 @@
 {
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs;
+    package = pkgs.emacs-git;
   };
 }
