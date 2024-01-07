@@ -152,6 +152,24 @@
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;
 
+  # systemd.user.services.ngrok-tunnel = {
+  #   description = "ngrok ssh tunnel";
+  #   wantedBy = [ "multi-user.target" ];
+  #   script = ''
+  #     #!/usr/bin/env bash
+  #     /home/egor/utilities/ngrok_nix_tunnel/run &
+  #   '';
+  # };
+
+  # systemd.user.services.emacs = {
+  #   description = "emacs";
+  #   wantedBy = [ "multi-user.target" ];
+  #   script = ''
+  #     #!/usr/bin/env bash
+  #     emacs --daemon &
+  #   '';
+  # };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

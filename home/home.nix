@@ -68,9 +68,10 @@ in
     packages = defaultPkgs;
 
     sessionVariables = {
-      EDITOR = "emacsclient";
-      TERM="xterm-256color";
-      COLORTERM="truecolor";
+      EDITOR = "emacsclient -c --socket-name /tmp/emacs${username}/server -a emacs";
+      EMACS_SOCKET_NAME = "/tmp/emacs${username}/server";
+      TERM = "xterm-256color";
+      COLORTERM = "truecolor";
       MACHINE = "lab-dell";
     };
   };
