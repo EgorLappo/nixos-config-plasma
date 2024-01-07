@@ -8,7 +8,13 @@ let
 
       lsp.display-messages = true;
 
-      cursor-shape.insert = "bar";
+      file-picker.hidden = true;
+
+      cursor-shape = {
+        insert = "bar";
+        normal = "block";
+        select = "underline";
+      };
     };
   };
 in
