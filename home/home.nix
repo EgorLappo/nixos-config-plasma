@@ -45,6 +45,9 @@ let
     # haskell packages
     haskellPackages.nix-tree # visualize nix dependencies
 
+    # rust
+    rustup
+
     # python
     micromamba
   ];
